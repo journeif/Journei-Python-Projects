@@ -1,0 +1,42 @@
+#Journei Ferguson
+#Dice Game
+#11/8/2022
+#Write a python script that simulates the rolling of two dice.  
+'''
+1. create dictionaries for dice 1 & 2
+2. import random 1-6 possibiites 
+3. print statement Ask the user if they want to ("Play dice")
+4. while loop runs until "no" is entered
+
+Dictionary 
+
+'''
+#Random is a python function that creates random numbers
+import random
+
+# Dictionaries for both dice
+Dice1 = {}
+Dice2 = {}
+
+# input statement that asks if user would like to play dice
+user = input("Would you like to play dice? Enter Yes or No: ")
+while user.capitalize() != "No": # while user does not equal no 
+  DiceOne = random.randint(1,6) # output random numbers for Die 1
+  DiceTwo = random.randint(1,6) # output random numbers for Die 2
+  print("Die 1:", DiceOne) #prints the random number for Die 1
+  print("Die 2:", DiceTwo) #prints the random number for die 2
+  user = input("Would you like to play dice? Enter Yes or No: ") # asks the user if they want to play again
+
+  if DiceOne in Dice1: #check if Diceone is in the dictionary
+    Dice1[DiceOne]+=1 #if so add 1
+  else:
+    Dice1[DiceOne]=1 #else add the new number into the dictionary 
+
+  if DiceTwo in Dice2: #check if DiceTwo is in the dictionary
+    Dice2[DiceTwo]+=1 #if so add 1
+  else:
+    Dice2[DiceTwo]=1 #else add the new number into the dictionary 
+
+
+print("Dice one history is: ", Dice1) #print the die history
+print("Dice two history is", Dice2) #print the die history
