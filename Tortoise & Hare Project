@@ -1,0 +1,109 @@
+#Journei Ferguson
+#CIS 113
+#Tortoise & Hare Project
+#Recreate the classic race of the tortoise and the hare
+'''
+Variables
+- Tortoise
+- Hare
+- Counter, which will count the time elapsed
+import random function to generate random numbers
+import time to add a clock that tells the time that has passed
+create a while loop that states while tortoise & hare are less than <70 
+ex: while tortoise <70 and hare <70: #while loop states if tortoise and hare are both less than 70 continue the program 
+Sleep function allows to lag 1 second
+depending on i will determine the move
+
+Ex: if i <= 5: #if random number is less than or equal to return 3
+    print("The tortoise is flying!!!! Fast plod")
+    return 3 #move 3 squares to the right
+
+Provide commentary on each turn
+ex:elif i == 6 or i ==7: #if random number is equal to 6 or 7 
+    return -6
+    print("The tortoise slipped! OMG") #commentary
+Display time elapsed and position each turn 
+ex: print("postion of the hare: ", hare) #the position of the hare 
+    print("position of the tortoise: ",tortoise) #the position of tortoise
+    print("Time elapsed: ",counter,"\n")
+If both passed 70 its a tie
+Check if either has passed 70 & display the winner
+ex: elif tortoise >= 70 and hare >= 70: #if tortoise and hare are both greater than or equal 70 than ots a tie
+      print("AW, ITS A TIE")
+    if tortoise >= 70: #if the tortoise greater than or equal to 70 
+      print("THE TORTOISE IS THE WINNER!!!") #the tortoise is the winner
+    elif hare >= 70: #if hare is greater than or equal to 70 
+      print("THE HARE IS THE WINNER!!!") #the hare is the winner
+If its negative return the animal back to 1
+ex: hare = 1 & tortoise = 1
+
+call main()
+'''
+import random #built-in function that generates random numbers
+import time #built-in function that tell the time that has passed
+
+#hold the postion of the animals  
+tortoise = 1 
+hare = 1
+counter = 0 #counts the time elapsed
+
+def tort(): #Define Tortoise function
+  i = random.randint(1,10) #provide random numbers from 1-10
+  if i <= 5: #if random number is less than or equal to return 3
+    print("The tortoise is flying!!!! Fast plod")
+    return 3 #move 3 squares to the right
+  elif i == 6 or i ==7: #if random number is equal to 6 or 7 
+    print("The tortoise slipped! OMG")
+    return -6 #move six squares to the left
+  elif i > 7:#if random number is greater than 7 return 1 
+    print("The tortoise is plodding.......SLOWLY")
+    return 1 #move one square to the right
+    
+def har(): #Define Hare function
+  i = random.randint(1,10) #provide random numbers from 1-10
+  if i <= 2: #if random number is less than or equal to 2 return 0
+    print("Oh no, The Hare has went to sleep")
+    return 0 #dont move at all
+  elif i == 3 or i == 4 : #if random number equals 3 or 4 return 9
+    print("The hare has made a gain. Big Hop")
+    return 9 #move nine squares to the right
+  elif i == 5: #if random number equal 5 return -12
+    print("Uh oh! The Hare has slipped")
+    return -12 #move twelve squares to the left
+  elif i == 6 or i == 7 or i == 8: #if random number equals 6,7,8 return 1
+    print("The Hare has made a small gain..... small hop")
+    return 1 #move one square to the right
+  elif i == 9 or i == 10: #if random number equals 9 or 10 return -2 
+    print("Oh no! The hare has slipped")
+    return -2 #move square two to the left
+    
+
+
+def main():
+  #hold the postion of the animals  
+  tortoise = 1 
+  hare = 1
+  counter = 0 #counts the time elapsed
+  print("BANG & THEY'RE OFF!!!\n") #Commentary that states the program has started
+  while tortoise <70 and hare <70: #while loop states if tortoise and hare are both less than 70 continue the program 
+    time.sleep(1) #makes program stop a second
+    tortoise += tort() #return a value after being called tortoise = tortoise + tort()
+    hare += har() #return a value after being called hare = hare + har()
+    counter += 1 
+    if tortoise < 1: #if tortoise is less than zero
+      tortoise = 1 #than reset it back to 1
+    if hare < 1: #if hare is less that zero
+      hare = 1 #than reset it back to 1
+    print("postion of the hare: ", hare) #the position of the hare 
+    print("position of the tortoise: ",tortoise) #the position of tortoise
+    print("Time elapsed: ",counter,"\n")
+    if tortoise == hare: #if tortoise and hare land on the same square print ouch
+      print("OUCH!!\n")
+    elif tortoise >= 70 and hare >= 70: #if tortoise and hare are both greater than or equal 70 than ots a tie
+      print("AW, ITS A TIE")
+    if tortoise >= 70: #if the tortoise greater than or equal to 70 
+      print("THE TORTOISE IS THE WINNER!!!") #the tortoise is the winner
+    elif hare >= 70: #if hare is greater than or equal to 70 
+      print("THE HARE IS THE WINNER!!!") #the hare is the winner
+   
+main()
